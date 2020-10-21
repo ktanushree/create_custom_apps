@@ -1,0 +1,87 @@
+---
+apps:
+  testappl7:
+    abbreviation: Te
+    aggregate_flows:
+    app_type: custom
+    app_unreachability_detection: true
+    category: enterprise
+    conn_idle_timeout: 3600
+    description:
+    display_name: testappl7
+    domains:
+      - www.testapp.com
+      - www.testapp2.com
+      - www.testapp3.com
+      - randomtext
+    ingress_traffic_pct: 50
+    ip_rules:
+    is_deprecated:
+    network_scan_application: false
+    order_number: 1
+    overrides_allowed:
+    parent_id:
+    path_affinity: strict
+    session_timeout: 0
+    system_app_overridden:
+    tags:
+    tcp_rules:
+    transfer_type: transactional
+    udp_rules:
+    use_parentapp_network_policy:
+  testapplayer3:
+    abbreviation: Te
+    aggregate_flows:
+    app_type: custom
+    app_unreachability_detection: true
+    category: enterprise
+    conn_idle_timeout: 3600
+    description:
+    display_name: testapplayer3
+    domains:
+    ingress_traffic_pct: 50
+    ip_rules:
+      -
+        dest_filters:
+          - Azure-Ubuntu-Prefix
+        dest_prefixes:
+        dscp:
+          value: 12
+        protocol: egp
+        src_filters:
+          - test
+    is_deprecated:
+    network_scan_application: false
+    order_number: 1
+    overrides_allowed:
+    parent_id:
+    path_affinity: strict
+    session_timeout:
+    system_app_overridden:
+    tags:
+    tcp_rules:
+      -
+        client_filters:
+          - RingCentral
+        client_port:
+          end: "200"
+          start: "100"
+        dscp:
+          value: 12
+        server_filters:
+          - globalfilter
+        server_port:
+          end: "1000"
+          start: "201"
+        server_prefixes:
+    transfer_type: transactional
+    udp_rules:
+      -
+        dest_prefixes:
+        dscp:
+        udp_filters:
+          - RingCentral
+        udp_port:
+          end: "12300"
+          start: "1010"
+    use_parentapp_network_policy:
